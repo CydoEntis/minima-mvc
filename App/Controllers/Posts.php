@@ -1,20 +1,27 @@
 <?php
+
 namespace App\Controllers;
 
-use Core\Controller;
+use \Core\Controller;
+use \Core\View;
 
+/**
+ * Posts controller
+ *
+ * PHP version 5.4
+ */
 class Posts extends Controller
 {
+
   /**
    * Show the index page
    *
    * @return void
    */
-  public function indexAction(): void
+  public function indexAction()
   {
-    echo "Hello from the index action in the Posts controller";
-    echo "<pre>";
-    echo htmlspecialchars(print_r($_GET, true));
+    // echo 'Hello from the index action in the Posts controller!';
+    View::renderTemplate('Posts/index.html');
   }
 
   /**
@@ -22,21 +29,20 @@ class Posts extends Controller
    *
    * @return void
    */
-  public function addNewAction(): void
+  public function addNewAction()
   {
-    echo "Hello from the addNew action in the Posts controller";
+    echo 'Hello from the addNew action in the Posts controller!';
   }
 
-  public function editAction() {
-    echo "Hello from the edit action in the Posts controller";
-    echo "<p>Route Parameters: </p> <prev>" . htmlspecialchars(print_r($this->routeParams, true));
+  /**
+   * Show the edit page
+   *
+   * @return void
+   */
+  public function editAction()
+  {
+    echo 'Hello from the edit action in the Posts controller!';
+    echo '<p>Route parameters: <pre>' .
+      htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
   }
-
-  protected function before() {
-    echo "(Before)";
-}
-
-protected function after() {
-    echo "(After)";
-}
 }

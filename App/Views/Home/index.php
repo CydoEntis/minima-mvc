@@ -10,12 +10,12 @@
 
 <body>
   <h1>Welcome</h1>
-  <p>Hello <?= htmlspecialchars($name) ?></p>
+  <p>Hello {{ name }}</p>
 
   <ul>
-    <?php foreach ($colors as $color) : ?>
-      <li><?= htmlspecialchars($color) ?></li>
-    <?php endforeach; ?>
+    {% for color in colors %}
+    <li>{{ color }}</li>
+    {% endfor %}
   </ul>
 </body>
 

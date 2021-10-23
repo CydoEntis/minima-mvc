@@ -34,7 +34,7 @@ class Home extends Controller
     public function indexAction()
     {
         //echo 'Hello from the index action in the Home controller!';
-        View::render('Home/index.php', [
+        View::renderTemplate('Home/index.html', [
             'name' => 'Dave',
             'colors' => ['red', 'green', 'blue']
         ]);
