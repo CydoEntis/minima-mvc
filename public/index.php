@@ -5,6 +5,11 @@ require_once dirname(__DIR__) . "./vendor/autoload.php";
 
 use Core\Router;
 
+// Error and Exception Handling.
+set_error_handler('Core\Error::errorHandler');
+set_exception_handler('Core\Error::exceptionHandler');
+
+// Router
 $router = new Router();
 
 // Add Routes
