@@ -6,3 +6,29 @@ Thrown in 'C:\xampp\htdocs\mvc-from-scratch\Core\Router.php' on line 129
 Stack trace:<pre>#0 C:\xampp\htdocs\mvc-from-scratch\public\index.php(23): Core\Router->dispatch('admin')
 #1 {main}
 Thrown in 'C:\xampp\htdocs\mvc-from-scratch\Core\Router.php' on line 129
+[23-Oct-2021 20:59:04 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace:<pre>#0 C:\xampp\htdocs\mvc-from-scratch\public\index.php(23): Core\Router->dispatch('admin')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\mvc-from-scratch\Core\Router.php' on line 129
+[23-Oct-2021 20:59:04 Europe/Berlin] PHP Fatal error:  Uncaught Twig\Error\SyntaxError: Unknown "endblock" tag. in C:\xampp\htdocs\mvc-from-scratch\App\Views\404.html:8
+Stack trace:
+#0 C:\xampp\htdocs\mvc-from-scratch\vendor\twig\twig\src\Parser.php(84): Twig\Parser->subparse(NULL, false)
+#1 C:\xampp\htdocs\mvc-from-scratch\vendor\twig\twig\src\Environment.php(479): Twig\Parser->parse(Object(Twig\TokenStream))
+#2 C:\xampp\htdocs\mvc-from-scratch\vendor\twig\twig\src\Environment.php(507): Twig\Environment->parse(Object(Twig\TokenStream))
+#3 C:\xampp\htdocs\mvc-from-scratch\vendor\twig\twig\src\Environment.php(348): Twig\Environment->compileSource(Object(Twig\Source))
+#4 C:\xampp\htdocs\mvc-from-scratch\vendor\twig\twig\src\Environment.php(309): Twig\Environment->loadTemplate('__TwigTemplate_...', '404.html')
+#5 C:\xampp\htdocs\mvc-from-scratch\vendor\twig\twig\src\Environment.php(277): Twig\Environment->load('404.html')
+#6 C:\xampp\htdocs\mvc-from-scratch\Core\View.php(37): Twig\Environment->render('404.html', Array)
+#7 C:\xampp\htdocs\mvc-from-scratch\Core\Error.php(55): Core\View::renderTemplate('404.html')
+#8 [internal function]: Core\Error::exceptionHandler(Object(Exception))
+#9 {main}
+  thrown in C:\xampp\htdocs\mvc-from-scratch\App\Views\404.html on line 8
+[23-Oct-2021 20:59:56 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace:<pre>#0 C:\xampp\htdocs\mvc-from-scratch\public\index.php(23): Core\Router->dispatch('admin')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\mvc-from-scratch\Core\Router.php' on line 129
+[23-Oct-2021 21:00:19 Europe/Berlin] Uncaught exception: 'Exception' with message 'MEthod neeAction not found in controller App\Controllers\Posts'
+Stack trace:<pre>#0 C:\xampp\htdocs\mvc-from-scratch\Core\Router.php(121): Core\Controller->__call('nee', Array)
+#1 C:\xampp\htdocs\mvc-from-scratch\public\index.php(23): Core\Router->dispatch('posts/nee')
+#2 {main}
+Thrown in 'C:\xampp\htdocs\mvc-from-scratch\Core\Controller.php' on line 44
