@@ -102,7 +102,7 @@ class Router
   public function dispatch(string $url): void
   {
 
-    $url = $this->removeQueryStringsVariables($url);
+    $url = $this->removeQueryStringVariables($url);
 
     if ($this->matchRoute($url)) {
       $controller = $this->params['controller'];
@@ -110,22 +110,23 @@ class Router
       // $controller = "App\Controllers\\$controller";
       $controller = $this->getNamespace() . $controller;
 
+
       if (class_exists($controller)) {
         $controller_object = new $controller($this->params);
 
         $action = $this->params['action'];
         $action = $this->convertToCamelCase($action);
 
-        if (preg_match('/action$/i', $action) == 0) {
+        if (is_callable([$controller_object, $action])) {
           $controller_object->$action();
         } else {
-          throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
+          echo "Method $action (in controller $controller) not found";
         }
       } else {
-        echo "Controller class {$controller} not found";
+        echo "Controller class $controller not found";
       }
     } else {
-      echo "No route matched";
+      echo 'No route matched.';
     }
   }
 
@@ -157,22 +158,25 @@ class Router
    * @param string $url
    * @return string
    */
-  protected function removeQueryStringsVariables(string $url): string
+  protected function removeQueryStringVariables($url)
   {
-    if ($url !== "") {
-      $parts = explode("&", $url, 2);
-      if (strpos($parts[0], "=") === false) {
+    if ($url != '') {
+      $parts = explode('&', $url, 2);
+
+      if (strpos($parts[0], '=') === false) {
         $url = $parts[0];
       } else {
-        $url = "";
+        $url = '';
       }
     }
+
     return $url;
   }
 
-  public function getNamespace()
+
+  protected function getNamespace()
   {
-    $namespace = "App\Controllers\\";
+    $namespace = 'App\Controllers\\';
 
     if (array_key_exists('namespace', $this->params)) {
       $namespace .= $this->params['namespace'] . '\\';
