@@ -1,3 +1,3 @@
 # Model View Controller
 
-A reiteration of my original MVC framework.
+A small core MVC framework template for future projects.
